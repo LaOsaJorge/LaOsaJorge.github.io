@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    background-image: url('fotos/Cielo.png');
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Contraseña</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function verificarContraseña() {
+            const contraseña = document.getElementById("contraseña").value;
+            if (contraseña === "12345") {
+                window.location.href = "enh_buena.html"; 
+            } else {
+                alert("Contraseña incorrecta. Inténtalo de nuevo.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Introduce la Contraseña</h1>
+        <input type="password" id="contraseña" maxlength="5" placeholder="Contraseña">
+        <br>
+        <button onclick="verificarContraseña()">Enviar</button>
+    </div>
+    <script>
+        function verificarContraseña() {
+            const contraseña = document.getElementById("contraseña").value;
+            if (contraseña === "12345") {
+                window.location.href = "enh_buena.html"; 
+            } else {
+                alert("Contraseña incorrecta. Inténtalo de nuevo.");
+            }
+        }
+    </script>
+</body>
+</html>

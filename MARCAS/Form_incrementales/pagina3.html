@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="util1.js"></script>
+    <script>
+        function cargaDatos() 
+        {
+            setValue("sNombre", getValue("sNombre"));
+            setValue("sPassword", getValue("sPassword"));
+            setValue("sLista", getValue("sLista"));
+            setValue("sDia", getValue("sDia"));
+            setValue("Contador1A", parseInt(getValue("Contador1")) + 1);
+            setValue("Contador2", parseInt(getValue("sContador2")) + 2);
+        }
+    </script>
+</head>
+<body onload="cargaDatos()">
+    <div class="form-container">
+        <form action="pagina4.html">
+            <h2>Formulario</h2>
+            <div>
+                <label for="sNombre">Nombre:</label>
+                <input type="text" name="sNombre" id="sNombre" required readonly/>
+            </div>
+            <div>
+                <label for="sPassword">Contraseña:</label>
+                <input type="password" name="sPassword" id="sPassword" required readonly/>
+            </div>
+            <div>
+                <label for="sLista">Nº Lista:</label>
+                <input type="text" name="sLista" id="sLista" readonly/>
+            </div>
+            <div>
+                <label for="sDia">Día:</label>
+                <input type="date" name="sDia" id="sDia" readonly/>
+            </div>
+            <div>
+                <label for="Contador1A">Contador +1:</label>
+                <input type="text" name="Contador1A" id="Contador1A" readonly/>
+            </div>
+            <div>
+                <label for="Contador2">Contador +2:</label>
+                <input type="text" name="Contador2" id="Contador2" readonly/>
+            </div>
+            <div>
+                <label for="sCumple">Cumpleaños:</label>
+                <input type="date" name="sCumple" id="sCumple"/>
+            </div>
+            <div>
+                <label for="sEmail">Email:</label>
+                <input type="email" name="sEmail" id="sEmail" />
+            </div>
+            <div>
+                <label for="sActualMes">Mes Actual:</label>
+                <input type="text" name="sActualMes" id="sActualMes" />
+            </div>
+            <div>
+                <label for="sRango">Rango:</label>
+                <input type="text" name="sRango" id="sRango" />
+            </div>
+            <br>
+            <div>
+                <input type="submit" value="Siguiente" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+       
+        

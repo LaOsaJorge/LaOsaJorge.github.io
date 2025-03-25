@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Combinaciones del álbum de Tuto Z</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+  <button id="showCombinationsBtn">Ver combinaciones</button>
+
+  <script>
+  document.getElementById('showCombinationsBtn').addEventListener('click', () => {
+    Swal.fire({
+      title: 'Combinaciones del álbum de Tuto Z',
+      html: `
+        <div style="text-align: left;">
+          <p><b>PREMIOS:</b></p>
+        
+            <b>PAREJA (nombre):</b> 2
+            <br>
+            <br>
+            <b>TRIO (nombre):</b> 5
+            <br>
+            <br>
+            <b>DOBLE PAREJA (nombre):</b> 6
+            <br>
+            <br>
+            <b>CUARTETO (nombre):</b> 10
+
+          <p><b>ESCALERA REFERENCIA (3) (referencia):</b> 6</p>
+          <p><b>ESCALERA REFERENCIA (4) (referencia):</b> -</p>
+          <p><b>ESCALERA COLOR (3) (nombre y referencia):</b> 10</p>
+          <p><b>ESCALERA COLOR (4) (nombre y referencia):</b> 15</p>
+          <p><b>ESCALERA IMPERIAL (cualquier escalera que empiece por referencia 1):</b> +1/3 del valor de la escalera</p>
+          <p><b>ESCALERA ESTRELLAS (3) (estrellas):</b> 15</p>
+          <p><b>ESCALERA ESTRELLAS (4) (estrellas):</b> 20</p>
+          <p><b>ESTRELLAS TOTALES DEL ALBUM:</b> 36</p>
+          <p><b>CROMOS:</b> 20</p>
+          <p><b>COMBINACIONES:</b> 8+8+0+0+0+0+0+0 = 16</p>
+        </div>
+      `,
+      icon: 'info',
+      confirmButtonText: 'Cerrar'
+    })
+  })
+  </script>
+</body>
+</html>

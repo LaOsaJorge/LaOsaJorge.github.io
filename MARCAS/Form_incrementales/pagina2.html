@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="util1.js"></script>
+    <script>
+        function cargaDatos() {
+            setValue("sNombre", getValue("sNombre"));
+            setValue("sPassword", getValue("sPassword"));
+            setValue("Contador1", parseInt(getValue("sContador1")) + 1);
+        }
+    </script>
+</head>
+<body onload="cargaDatos()">
+    <div class="form-container">
+        <form action="pagina3.html" method="GET">
+            <h2>Formulario</h2>
+            <div class="form-group">
+                <label for="sNombre">Nombre:</label>
+                <input type="text" name="sNombre" id="sNombre" required readonly/>
+            </div>
+            <div class="form-group">
+                <label for="sPassword">Contraseña:</label>
+                <input type="password" name="sPassword" id="sPassword" required readonly/>
+            </div>
+            <div class="form-group">
+                <label for="sLista">Nº Lista:</label>
+                <input type="text" name="sLista" id="sLista" />
+            </div>
+            <div class="form-group">
+                <label for="sDia">Día:</label>
+                <input type="date" name="sDia" id="sDia" />
+            </div>
+            <div class="form-group">
+                <label for="Contador1">Contador +1:</label>
+                <input type="text" name="Contador1" id="Contador1" readonly/>
+            </div>
+            <div class="form-group">
+                <label for="sContador2">Contador +2:</label>
+                <input type="text" name="sContador2" id="sContador2" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Siguiente" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

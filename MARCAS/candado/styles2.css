@@ -1,0 +1,102 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    height: 100vh;
+    margin: 0; 
+    background-image: url('Fotos/Fondo_candado.png'); 
+    background-size: cover; 
+    background-position: center; 
+    font-family: Arial, sans-serif;
+    color: rgb(190, 73, 73);
+}
+
+.container {
+    background-color: rgba(124, 228, 247, 0.877); 
+    padding: 10px; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 60%; 
+    max-width: 250px; 
+    margin-top:100px; 
+}
+
+input[type="password"] {
+    padding: 8px; 
+    width: 90%; 
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 10px; 
+    background-color: hsl(68, 100%, 95%);
+    color: rgb(0, 217, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; 
+    width: 70%; 
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f8ff; 
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+
+h1 {
+    font-size: 2.5em;
+    color: #4CAF50; 
+}
+
+p {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049; 
+}
+
+.confetti {
+    position: relative;
+    height: 100px;
+    margin: 20px 0;
+}
+
+.piece {
+    width: 10px;
+    height: 10px;
+    background-color: #FF5733; 
+    position: absolute;
+    animation: fall 3s infinite;
+}
+
+.piece:nth-child(1) { left: 10%; animation-delay: 0s; }
+.piece:nth-child(2) { left: 30%; animation-delay: 0.5s; }
+.piece:nth-child(3) { left: 50%; animation-delay: 1s; }
+.piece:nth-child(4) { left: 70%; animation-delay: 1.5s; }
+.piece:nth-child(5) { left: 90%; animation-delay: 2s; }
+
+@keyframes fall {
+    0% { transform: translateY(-100px); opacity: 1; }
+    100% { transform: translateY(100px); opacity: 0; }
+}

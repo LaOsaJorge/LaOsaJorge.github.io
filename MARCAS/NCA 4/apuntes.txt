@@ -1,0 +1,6 @@
+1. Hacer una pagina principal la cual contiene en botones los distintos tipos de placa base, 
+cada boton lleva a una pagina distinta con dicho modelo de placa base y y en esta pagina se veria 
+la variedad con las placas bases, precios y demas
+
+2. Al entrar en cada placa base q salte una alerta de sweetalert indicando las caracteristicas de esa 
+placa base

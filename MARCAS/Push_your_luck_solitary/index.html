@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Juego de Cartas</title>
+  <style>
+    .game-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    .game-header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .btn-game {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #current-card {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <div class="game-header">
+      <div class="lives">Vidas: <span id="lives">3</span></div>
+      <div class="cards-raised">Cartas levantadas: <span id="cards-raised">0</span></div>
+      <div class="current-card">Carta actual: <span id="current-card"></span></div>
+    </div>
+    <div class="game-buttons">
+      <button id="btn-alta" class="btn-game" onclick="handleButtonClick('alta')">Alta</button>
+      <button id="btn-baja" class="btn-game" onclick="handleButtonClick('baja')">Baja</button>
+      <button id="btn-mismo-color" class="btn-game" onclick="handleButtonClick('mismo-color')">Mismo color</button>
+      <button id="btn-distinto-color" class="btn-game" onclick="handleButtonClick('distinto-color')">Distinto color</button>
+      <button id="btn-suma-menor-11" class="btn-game" onclick="handleButtonClick('suma-menor-11')">Suma < 11</button>
+      <button id="btn-comodin" class="btn-game" onclick="handleButtonClick('comodin')">Comodín</button>
+      <button id="btn-plantarse" class="btn-game" onclick="handleButtonClick('plantarse')">Plantarse</button>
+    </div>
+  </div>
+
+  <script>
+    // Inicializar variables
+    let lives = 3;
+    let cardsRaised = 0;
+    let currentCard = null;
+    let buttonCounts = {
+      alta: 15,
+      baja: 15,
+      'mismo-color': 5,
+      'distinto-color': 5,
+      'suma-menor-11': 10,
+      comodin: 3
+    };
+    let comboRacha = 0;
+
+    // Función para generar una carta aleatoria
+    function getRandomCard() {
+      const suits = ['♥', '♦', '♣', '♠'];
+      const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+      const suitIndex = Math.floor(Math.random() * suits.length);
+      const rankIndex = Math.floor(Math.random() * ranks.length);
+      return `${ranks[rankIndex]}${suits[suitIndex]}`;
+    }
+
+    // Función para actualizar la carta actual
+    function updateCurrentCard(card) {
+      currentCard = card;
+      document.getElementById('current-card').textContent = card;
+      cardsRaised++;
+      document.getElementById('cards-raised').textContent = cardsRaised;
+    }
+
+    // Función para actualizar el estado de los botones
+    function updateButtonStates() {
+      Object.keys(buttonCounts).forEach(button => {
+        const buttonElement = document.getElementById(`btn-${button}`);
+        buttonElement.disabled = buttonCounts[button] === 0;
+      });
+    }
+
+    // Función para manejar el click de los botones
+    function handleButtonClick(button) {
+      if (button === 'plantarse') {
+        endGame();
+      } else {
+        const newCard = getRandomCard();
+        const isCorrectGuess = evaluateGuess(button, newCard);
+        if (isCorrectGuess) {
+          buttonCounts[button]--;
+          comboRacha++;
+          if (comboRacha === 5) {
+            Object.keys(buttonCounts).forEach(b => {
+              if (b !== 'comodin') {
+                buttonCounts[b]++;
+              }
+            });
+            comboRacha = 0;
+          }
+          updateCurrentCard(newCard);
+        } else {
+          lives--;
+          document.getElementById('lives').textContent = lives;
+          if (lives === 0) {
+            endGame();
+          }
+        }
+        updateButtonStates();
+      }
+    }
+
+    // Función para evaluar la apuesta del jugador
+    function evaluateGuess(button, newCard) {
+      const [newRank, newSuit] = [newCard[0], newCard[1]];
+      const [currentRank, currentSuit] = [currentCard[0], currentCard[1]];
+
+      switch (button) {
+        case 'alta':
+          return newRank > currentRank;
+        case 'baja':
+          return newRank < currentRank;
+        case 'mismo-color':
+          return (newSuit === '♥' || newSuit === '♦') === (currentSuit === '♥' || currentSuit === '♦');
+        case 'distinto-color':
+          return (newSuit === '♥' || newSuit === '♦') !== (currentSuit === '♥' || currentSuit === '♦');
+        case 'suma-menor-11':
+          const newValue = getCardValue(newRank);
+          const currentValue = getCardValue(currentRank);
+          return newValue + currentValue < 11;
+        case 'comodin':
+          updateCurrentCard(newCard);
+          return true;
+        default:
+          return false;
+      }
+    }
+
+    // Función para obtener el valor de una carta
+    function getCardValue(rank) {
+      switch (rank) {
+        case 'A':
+          return 1;
+        case 'J':
+        case 'Q':
+        case 'K':
+          return 10;
+        default:
+          return parseInt(rank);
+      }
+    }
+
+    // Función para finalizar el juego
+    function endGame() {
+      alert(`Juego terminado. Puntuación: ${cardsRaised}`);
+      location.reload();
+    }
+
+    // Iniciar el juego
+    updateCurrentCard(getRandomCard());
+    updateButtonStates();
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+        }
+        .cartel {
+            background-color: #ffffff;
+            border: 5px solid #4CAF50;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .pregunta {
+            font-size: 1.5em;
+            margin: 15px 0;
+        }
+        .respuesta {
+            font-size: 2em;
+            color: #4CAF50;
+            font-weight: bold;
+            display: none; 
+        }
+        input {
+            padding: 10px;
+            font-size: 1em;
+            margin-top: 10px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cartel">
+    <h1>Cartel</h1>
+    
+    <div class="pregunta">Escribe tu pregunta:</div>
+    <input type="text" id="inputPregunta" placeholder="Ej: ¿Qué lenguaje es Cascading Style Sheets?" oninput="mostrarRespuesta()">
+    
+    <div class="respuesta" id="respuesta"></div>
+</div>
+
+<script>
+    const preguntasRespuestas = {
+            "¿Qué propiedad CSS se usa para cambiar el color de fondo de un elemento?" : "background-color",
+            "¿Qué etiqueta HTML se utiliza para insertar una imagen en una página web?" : "img",
+            "¿Qué evento en JavaScript se usa para detectar cuando el usuario hace clic en un elemento?" : "click",
+            "¿Qué lenguaje es Cascading Style Sheets?" : "CSS",
+            "¿Qué propiedad de CSS permite cambiar el tamaño del texto?" : "font-size"
+        };
+    function mostrarRespuesta() {
+        const input = document.getElementById('inputPregunta').value;
+        const respuestaDiv = document.getElementById('respuesta');
+        
+        if (preguntasRespuestas[input]) {
+            respuestaDiv.textContent = preguntasRespuestas[input];
+            respuestaDiv.style.display = 'block'; 
+        } else {
+            respuestaDiv.style.display = 'none'; 
+        }
+    }
+</script>
+
+</body>
+</html>

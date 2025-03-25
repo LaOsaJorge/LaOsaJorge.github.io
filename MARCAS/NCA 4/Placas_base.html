@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galería de Placas Base</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #eef2f3;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .small-card {
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 150px;
+        text-align: center;
+    }
+    .small-card img {
+        width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+<h1>Compra de Placas Base</h1>
+<div class="gallery">
+    <div class="small-card" onclick="mostrarInfo('Placa Base A', 'Descripción de la Placa Base A.');">
+        <img src="" alt="Placa Base A">
+        <p>Placa Base A</p>
+    </div>
+    <div class="small-card" onclick="mostrarInfo('Placa Base B', 'Descripción de la Placa Base B.');">
+        <img src="https://via.placeholder.com/150" alt="Placa Base B">
+        <p>Placa Base B</p>
+    </div>
+    <div class="small-card" onclick="mostrarInfo('Placa Base C', 'Descripción de la Placa Base C.');">
+        <img src="https://via.placeholder.com/150" alt="Placa Base C">
+        <p>Placa Base C</p>
+    </div>
+    <div class="small-card" onclick="mostrarInfo('Placa Base D', 'Descripción de la Placa Base D.');">
+        <img src="https://via.placeholder.com/150" alt="Placa Base D">
+        <p>Placa Base D</p>
+    </div>
+    <div class="small-card" onclick="mostrarInfo('Placa Base E', 'Descripción de la Placa Base E.');">
+        <img src="https://via.placeholder.com/150" alt="Placa Base E">
+        <p>Placa Base E</p>
+    </div>
+    <div class="small-card" onclick="mostrarInfo('Placa Base F', 'Descripción de la Placa Base F.');">
+        <img src="https://via.placeholder.com/150" alt="Placa Base F">
+        <p>Placa Base F</p>
+    </div>
+    <div class="small-card" onclick="mostrarInfo('Placa Base G', 'Descripción de la Placa Base G.');">
+        <img src="https://via.placeholder.com/150" alt="Placa Base G">
+        <p>Placa Base G</p>
+    </div>
+    <div class="small-card" onclick="mostrarInfo('Placa Base H', 'Descripción de la Placa Base H.');">
+        <img src="https://via.placeholder.com/150" alt="Placa Base H">
+        <p>Placa Base H</p>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script>
+    function mostrarInfo(titulo, descripcion) {
+        swal({
+            title: titulo,
+            text: descripcion,
+            icon: "info",
+            button: "Cerrar",
+        });
+    }
+</script>
+</body>
+</html>

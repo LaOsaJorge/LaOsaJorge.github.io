@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P4</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="util1.js"></script>
+    <script>
+        function cargaDatos()
+         {
+            setValue("sNombre", getValue("sNombre"));
+            setValue("sPassword", getValue("sPassword"));
+            setValue("sLista", getValue("sLista"));
+            setValue("sDia", getValue("sDia"));
+            setValue("sCumple", getValue("sCumple"));
+            setValue("sEmail", getValue("sEmail"));
+            setValue("sActualMes", getValue("sActualMes"));
+            setValue("sRango", getValue("sRango"));
+            setValue("Contador1B", parseInt(getValue("Contador1A")) + 1);
+            setValue("Contador2A", parseInt(getValue("Contador2")) + 1);
+        }
+    </script>
+</head>
+<body onload="cargaDatos()">
+    <div class="form-container">
+        <form action="pagina1.html">
+            <h2>Formulario</h2>
+            <div>
+                <label for="sNombre">Nombre:</label>
+                <input type="text" name="sNombre" id="sNombre" required readonly/>
+            </div>
+            <div>
+                <label for="sPassword">Contraseña:</label>
+                <input type="password" name="sPassword" id="sPassword" required readonly/>
+            </div>
+            <div>
+                <label for="sLista">Nº Lista:</label>
+                <input type="text" name="sLista" id="sLista" readonly/>
+            </div>
+            <div>
+                <label for="sDia">Día:</label>
+                <input type="date" name="sDia" id="sDia" readonly/>
+            </div>
+            <div>
+                <label for="Contador1B">Contador +1:</label>
+                <input type="text" name="Contador1B" id="Contador1B" readonly/>
+            </div>
+            <div>
+                <label for="Contador2A">Contador +2:</label>
+                <input type="text" name="Contador2A" id="Contador2A" readonly/>
+            </div>
+            <div>
+                <label for="sCumple">Cumpleaños:</label>
+                <input type="date" name="sCumple" id="sCumple" readonly/>
+            </div>
+            <div>
+                <label for="sEmail">Email:</label>
+                <input type="email" name="sEmail" id="sEmail" readonly/>
+            </div>
+            <div>
+                <label for="sActualMes">Mes Actual:</label>
+                <input type="text" name="sActualMes" id="sActualMes" readonly/>
+            </div>
+            <div>
+                <label for="sRango">Rango:</label>
+                <input type="text" name="sRango" id="sRango" readonly/>
+            </div>
+            <br>
+            <div>
+                <input type="submit" value="Siguiente" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+       

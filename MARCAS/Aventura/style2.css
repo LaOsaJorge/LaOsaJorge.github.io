@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    background-image: url('Fotos/Fondo2.jpg');
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed;
+}

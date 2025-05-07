@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clave y Valor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: calc(100% - 22px);
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #218838;
+            outline: none;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            margin-top: 20px;
+            background: #f8f9fa;
+            padding: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        p {
+            margin: 5px 0;
+        }
+        strong {
+            color: #28a745;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de Clave y Valor</h1>
+        <input type="text" id="key" placeholder="Introduce la clave">
+        <button onclick="addKeyValue()">Añadir</button>
+        <button onclick="clearData()">Limpiar Datos</button>
+        <div id="result"></div>
+        <div id="error-message" class="error"></div>
+    </div>
+
+    <script>
+        function getRandomValue() {
+            // Generar un número aleatorio entre 1 y 100
+            return Math.floor(Math.random() * 100) + 1;
+        }
+
+        function addKeyValue() {
+            const key = document.getElementById('key').value;
+            const value = getRandomValue();
+            const errorMessageDiv = document.getElementById('error-message');
+
+            // Verificar si la clave ya existe
+            if (key) {
+                if (localStorage.getItem(key)) {
+                    errorMessageDiv.textContent = 'Error: La clave ya existe. Por favor, elige otra.';
+                } else {
+                    localStorage.setItem(key, value);
+                    errorMessageDiv.textContent = '';
+                    displayStoredData();
+                    document.getElementById('key').value = '';
+                }
+            } else {
+                errorMessageDiv.textContent = 'Por favor, introduce una clave válida.';
+            }
+        }
+
+        function clearData() {
+            localStorage.clear();
+            displayStoredData();
+        }
+
+        function displayStoredData() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<h2>Datos Registrados:</h2>';
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                resultDiv.innerHTML += `<p><strong>${key}</strong>: ${value}</p>`;
+            }
+        }
+
+        window.onload = displayStoredData;
+    </script>
+</body>
+</html>
